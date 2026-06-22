@@ -1,0 +1,16 @@
+server:
+  port: 3347
+spring:
+  application:
+    name: activity
+
+  datasource:
+    url: mongodb://localhost:27017/fittnessApp
+    database: activities
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+

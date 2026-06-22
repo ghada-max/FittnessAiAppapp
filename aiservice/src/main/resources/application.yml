@@ -1,0 +1,12 @@
+spring:
+   application:
+      name: aiservice
+
+   datasource:
+     url: mongodb://localhost:27017/fittnessApp
+     database: recommendation
+
+
+
+server:
+  port: 3348
