@@ -13,7 +13,7 @@ public class UserValidation {
     private final WebClient userServiceWebClient;
     public String testConnection() {
         return userServiceWebClient.get()
-                .uri("/api/user/ping")
+                .uri("http://user-service/api/user/ping")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -22,7 +22,7 @@ public class UserValidation {
 
         try {
             Boolean result = userServiceWebClient.get()
-                    .uri("http://userservice/api/user/{userId}/validate", userId)
+                    .uri("http://user-service/api/user/{userId}/validate", userId)
                     .retrieve()
                     .bodyToMono(Boolean.class)
                     .block();

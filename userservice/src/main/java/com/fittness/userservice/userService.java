@@ -34,7 +34,7 @@ public class userService {
             User existingUser= (User) repo.findByEmail(request.getEmail());
             UserResponse userResponse=new UserResponse();
             userResponse.setId(existingUser.getId());
-            userResponse.setKeykloakId(existingUser.getKeycloakId());
+        //    userResponse.setKeykloakId(existingUser.getKeycloakId());
             userResponse.setEmail(existingUser.getEmail());
             userResponse.setFirstname(existingUser.getFirstname());
             userResponse.setPassword(existingUser.getPassword());
@@ -50,12 +50,12 @@ public class userService {
         userRequest.setPassword(request.getPassword());
         userRequest.setFirstname(request.getFirstname());
         userRequest.setLastname(request.getLastName());
-        userRequest.setKeycloakId(request.getKeykloakId());
+     //   userRequest.setKeycloakId(request.getKeykloakId());
         repo.save(userRequest);
 
         UserResponse response=new UserResponse();
         response.setEmail(userRequest.getId());
-        response.setKeykloakId(userRequest.getKeycloakId());
+       // response.setKeykloakId(userRequest.getKeycloakId());
 
         response.setEmail(userRequest.getEmail());
         response.setFirstname(userRequest.getFirstname());
@@ -70,7 +70,9 @@ public class userService {
 
     public Boolean existByUserId(String userId) {
         log.info("calling user api validation for iserId:"+userId);
-        return repo.existsByKeycloakId(userId);
+      //  return repo.existsByKeycloakId(userId);
+         return repo.existsById(userId);
+
 
     }
 }
